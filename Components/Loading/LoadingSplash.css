@@ -1,0 +1,126 @@
+.splash-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.662);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 9999;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  /* Fade out effect */
+  .fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  /* General fog layer styling */
+  .fog {
+    position: absolute;
+    width: 200%;
+    opacity: 0.6;
+    transition: transform 2s ease-in-out, opacity 3s ease-in-out;
+  }
+  
+  /* Fog starts from center and moves outwards */
+  .fog1 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fogMoveOut1 10s ease-in-out forwards;
+  }
+  
+  .fog2 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+    animation: fogMoveOut2 10s ease-in-out forwards;
+  }
+  
+  .fog3 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.4;
+    animation: fogMoveOut3 10s ease-in-out forwards;
+  }
+  
+  .fog4 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.3;
+    animation: fogMoveOut4 10s ease-in-out forwards;
+  }
+  
+  .fog5 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.2;
+    animation: fogMoveOut5 10s ease-in-out forwards;
+  }
+  
+  /* Apply fade-out effect */
+  .fade-out .fog {
+    opacity: 0;
+  }
+  
+  /* Keyframe animations for fog movement */
+  @keyframes fogMoveOut1 {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    100% { transform: translate(-120%, -120%) scale(2); }
+  }
+  
+  @keyframes fogMoveOut2 {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    100% { transform: translate(120%, -120%) scale(2); }
+  }
+  
+  @keyframes fogMoveOut3 {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    100% { transform: translate(-120%, 120%) scale(2); }
+  }
+  
+  @keyframes fogMoveOut4 {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    100% { transform: translate(120%, 120%) scale(2); }
+  }
+  
+  @keyframes fogMoveOut5 {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    100% { transform: translate(0%, -150%) scale(2); }
+  }
+  
+  /* Welcome text styling */
+  .welcome-text {
+    color: #FFD700; /* Gold color for heading */
+    text-shadow: 
+      0 0 5px #FFD700, 
+      0 0 10px #FFD700,
+      0 0 20px #FFD700;
+    font-size: 3rem;
+    font-weight: bold;
+    position: absolute;
+    z-index: 10;
+    animation: textFade 3s ease-in-out;
+    transition: opacity 2s ease-in-out;
+  }
+  
+  /* Fade out text with delay */
+  .fade-out .welcome-text {
+    opacity: 0;
+    transition-delay: 1s;
+  }
+  
+  @keyframes textFade {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  

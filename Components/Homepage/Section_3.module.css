@@ -1,0 +1,100 @@
+@font-face {
+  font-family: 'Animales fantastic';
+  src: url('../../fonts/Animales\ Fantastic.ttf') format('truetype'); /* Fallback */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Ensures text is visible while the font loads */
+}
+
+@font-face {
+  font-family: 'Borisns';
+  src: url('../../fonts/Borisna.ttf') format('truetype'); /* Fallback */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Ensures text is visible while the font loads */
+}
+
+
+.bg {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #000000, #2D033B 50%, #000000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+  
+  .dayContainer {
+    width: 90%;
+    max-width: 1200px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .wrapper {
+    width: 100%;
+    max-width: 985px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Header Section */
+  .header {
+    text-align: center;
+    font-family: "Animales fantastic";
+    letter-spacing: 0.5px;
+   
+  }
+  
+  .title {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: rgb(220, 183, 0);
+  }
+  
+  .subtitle {
+    font-size: 20px;
+    line-height: 1.4;
+    max-width: 80%;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    font-family: 'Borisns';
+  }
+  
+  /* Card Container */
+  .cardsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    font-family: "Animales fantastic";
+    
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 991px) {
+    .title {
+      font-size: 40px;
+    }
+  
+    .subtitle {
+      font-size: 18px;
+    }
+  
+    .cardsContainer {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+
+
+
+

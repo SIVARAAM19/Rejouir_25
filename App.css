@@ -1,0 +1,96 @@
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 30vmin; /* Adjusted for responsiveness */
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(8px + 1.5vmin); /* Adjusted for smaller screens */
+  padding: 20px; /* Added padding for spacing on smaller devices */
+  color: white;
+  text-align: center;
+}
+
+.App-link {
+  color: #61dafb;
+  font-size: 1.2rem; /* Scales well across devices */
+  text-decoration: none;
+}
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  z-index: 9999;
+}
+
+
+/* Keyframes for logo spinning */
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .App-logo {
+    height: 40vmin; /* Larger on smaller screens for better visibility */
+  }
+
+  .App-header {
+    font-size: calc(8px + 2vmin); /* Increase text size slightly */
+  }
+
+  .App-link {
+    font-size: 1rem; /* Adjust link size for smaller devices */
+  }
+}
+
+@media (max-width: 480px) {
+  .App-logo {
+    height: 50vmin; /* Even larger for very small screens */
+  }
+
+  .App-header {
+    font-size: calc(6px + 2vmin); /* Smaller text on very small screens */
+    padding: 10px; /* Reduce padding */
+  }
+
+  .App-link {
+    font-size: 0.9rem; /* Reduce size for smaller screens */
+  }
+}
+
+
+html, body {
+  background-color: var(--bg);
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+

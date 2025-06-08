@@ -1,0 +1,142 @@
+/* Define the Harry Potter font */
+@font-face {
+  font-family: 'Harry P';
+  src: url('../../fonts/HARRYP__.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Section styling */
+.section {
+  background-color: black;
+  color: white;
+  padding: clamp(30px, 5vw, 60px) clamp(10px, 3vw, 20px);
+  text-align: center;
+  font-family: 'Harry P', cursive;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+}
+
+/* Container for content */
+.container {
+  max-width: min(800px, 90%);
+  margin: 0 auto;
+  padding: 0 clamp(10px, 3vw, 20px);
+}
+
+/* Heading styling */
+.heading {
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin-bottom: clamp(15px, 3vw, 20px);
+  color: #ffffff;
+  text-shadow: 
+    0 0 5px #FFD700,
+    0 0 10px #FFD700,
+    0 0 20px #FFD700;
+}
+
+/* Paragraph styling */
+.paragraph {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  line-height: 1.6;
+  margin-bottom: clamp(15px, 3vw, 20px);
+  color: #f0f0f0;
+  letter-spacing: 1.5px;
+}
+
+/* Add a magical border */
+.container::before,
+.container::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #FFD700, #8B6914, #FFD700);
+}
+
+.container::before {
+  margin-bottom: clamp(20px, 4vw, 30px);
+}
+
+.container::after {
+  margin-top: clamp(20px, 4vw, 30px);
+}
+
+.readMoreButton {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+  display: grid;
+  place-items: center;
+  height: 64px;
+  padding: 0 32px;
+  border: 0;
+  border-radius: 10px;
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  color: #ffffff;
+
+  background: none;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(25px);
+  }
+  100% {
+    transform: translateX(-20px);
+  }
+}
+
+.readMoreButton > span {
+  position: relative;
+  z-index: 2;
+}
+
+.readMoreButton::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 100%;
+  background: #8f44fd
+    repeating-linear-gradient(
+      60deg,
+      transparent,
+      transparent 10px,
+      #7a3bd7 10px,
+      #7a3bd7 20px
+    );
+  
+  animation: loading 1s infinite linear;
+}
+
+.heading {
+  animation: glow 3s infinite;
+}
+
+/* For very small screens (e.g., foldables) */
+@media (max-width: 400px) {
+  .paragraph {
+    letter-spacing: 1px;
+    line-height: 1.5;
+  }
+  
+  .readMoreButton {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* For landscape mobile devices */
+@media (max-height: 500px) and (orientation: landscape) {
+  .section {
+    padding: 20px 10px;
+    min-height: auto;
+  }
+}

@@ -1,0 +1,180 @@
+/* Reset default styles */
+section-one {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'DS-DIGIT';
+  /* Apply Harry Potter-themed font globally */
+}
+
+@font-face {
+  font-family: 'DS-DIGIT';
+  src: url('../../fonts/DS-DIGIT.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Set dark purple background theme */
+html,
+body {
+  overflow-x: clip;
+  width: 100%;
+  background-color: #1a0028;
+  color: #fff;
+  font-family: 'Harry P', cursive;
+}
+
+/* Full-screen section */
+section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background images */
+section img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* Castle styles */
+.castle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 550px;
+  height: 550px;
+  object-fit: cover;
+  filter: brightness(0.8) contrast(1.2);
+}
+
+/* Title styling */
+.title {
+  position: absolute;
+  bottom: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  font-size: 6rem;
+  text-align: center;
+  font-family: 'Harry P', cursive;
+  color: #eed4f4;
+  text-shadow:
+    2px 2px 4px #1d0324,
+    4px 4px 6px #8215a3,
+    6px 6px 10px #aa25d3,
+    0 0 15px #c850f0;
+  animation: flicker 1.5s infinite alternate;
+  letter-spacing: 10px;
+}
+
+/* Flickering glow animation */
+@keyframes flicker {
+  0% {
+    text-shadow:
+      2px 2px 4px #33063d,
+      4px 4px 6px #8215a3,
+      6px 6px 10px #aa25d3,
+      0 0 15px #c850f0;
+  }
+
+  100% {
+    text-shadow:
+      2px 2px 5px #28092f,
+      5px 5px 8px #aa25d3,
+      7px 7px 12px #c850f0,
+      0 0 18px #e590ff;
+  }
+}
+
+
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  /* Adjust moon position for mobile */
+  #moon {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Adjust castle for mobile */
+  .castle {
+    right: auto;
+    left: 10%;
+    width: 400px;
+    height: 400px;
+  }
+
+  /* Adjust title for mobile */
+  .title {
+    bottom: 35%;
+    font-size: 3rem;
+  }
+
+
+  /* Adjust Rejouir logo for mobile */
+  .rejouirLogo {
+    width: 150px;
+    bottom: 250px;
+  }
+
+  /* Adjust other elements for mobile */
+  #moon,
+  #mountain,
+  #bush,
+  .rejouirLogo,
+
+
+  .separator {
+    margin: 0 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Adjust overlay for smaller screens */
+  .overlay {
+    width: 95%;
+    padding: 15px;
+  }
+
+  /* Adjust text sizes for smaller screens */
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+
+  /* Adjust Rejouir logo for smaller screens */
+  .rejouirLogo {
+    width: 200px !important;
+    bottom: 500px !important;
+  }
+
+  /* Adjust other elements for smaller screens */
+  #mountain,
+  #castle,
+  #bush {
+    width: 40%;
+  }
+
+  #moon {
+    width: 100px !important;
+    height: 100px !important;
+  }
+}

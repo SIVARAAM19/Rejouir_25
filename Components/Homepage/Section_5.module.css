@@ -1,0 +1,117 @@
+/* Footer Styling */
+@font-face {
+  font-family: 'Borisns';
+  src: url('../../fonts/Borisna.ttf') format('truetype'); /* Fallback */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Ensures text is visible while the font loads */
+}
+
+
+
+.footer {
+    background: black;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    font-family: 'Borisna';
+    letter-spacing: 1.5px;
+}
+  
+  /* Flex Container */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  /* Left Side - Brand */
+  .brand {
+    font-family: 'Borisns';
+    text-align: left;
+  }
+  
+  .heading {
+    font-family: 'Borisns';
+    font-size: 2rem;
+    color: #FFD700;
+    text-shadow: 0 0 10px #FFD700;
+
+  }
+  
+  .tagline {
+    font-family: 'Borisns';
+    font-size: 1.2rem;
+    color: #f0f0f0;
+  }
+  
+  /* Middle - Quick Links */
+  .links {
+    font-family: 'Borisns';
+    display: flex;
+    gap: 15px;
+  }
+  
+  .links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+  }
+  
+  .links a:hover {
+    color: #FFD700;
+  }
+  
+  /* Right Side - Social Icons */
+  .socialIcons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .socialIcons a {
+    font-size: 1.5rem;
+    color: white;
+    transition: color 0.3s, transform 0.2s;
+  }
+  
+  .socialIcons a:hover {
+    color: #FFD700;
+    transform: scale(1.1);
+  }
+  
+  /* Copyright Section */
+  .copyright {
+    font-family: 'Borisns';
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #f0f0f0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      text-align: center;
+      height: fit-content;
+    }
+
+    .links{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .brand, .links, .socialIcons {
+      margin-bottom: 20px;
+    }
+  }
+
+  @media (max-width: 500px){
+    .links{
+      display: flex;
+      flex-direction: column;
+    }
+  }

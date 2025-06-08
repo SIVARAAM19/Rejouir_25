@@ -1,0 +1,159 @@
+:root {
+  --bg: rgb(0, 0, 0);
+  --scar: #d5a11d;
+  --glasses: rgba(152, 130, 92, 0.15);
+  --bridge: #eeba32;
+  --shine: rgba(255, 255, 255, 0.6);
+}
+
+
+@keyframes bodyPulse {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  30% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  70% {  /* Hold the position at the center for 2 seconds */
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg);
+  animation: bodyPulse 5s ease-in-out forwards; /* 5s to account for the 2s pause */
+}
+
+  
+
+.show {
+  position: relative;
+  height: 50vmin;
+  transform: translate(-7vmin, 1vmin);
+}
+
+/* Pulsating Effect */
+.pulseEffect {
+  animation: pulse 1.2s infinite alternate ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+.scar {
+  position: absolute;
+  border-left: 6vmin solid transparent;
+  border-right: 1vmin solid transparent;
+  border-bottom: 10vmin solid var(--scar);
+  left: -22vmin;
+}
+
+.scar::after {
+  content: "";
+  position: absolute;
+  border-left: 5.5vmin solid transparent;
+  border-right: 1vmin solid transparent;
+  border-bottom: 16vmin solid var(--bg);
+  top: -9vmin;
+  left: -2.5vmin;
+  transform: rotate(-3deg);
+}
+
+.partTwo {
+  top: 6.5vmin;
+  left: -19vmin;
+  transform: scale(-1);
+}
+
+.glassesOne,
+.glassesTwo {
+  position: absolute;
+  width: 20vmin;
+  height: 20vmin;
+  border-radius: 50%;
+  background: var(--glasses);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4),
+    inset 0 1px 8px rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 0.6vmin solid var(--bridge);
+  top: 19vmin;
+  overflow: hidden;
+}
+
+.glassesOne {
+  left: -28vmin;
+}
+
+.glassesTwo {
+  left: 2vmin;
+}
+
+.bridge {
+  position: absolute;
+  width: 12.8vmin;
+  height: 14vmin;
+  border: 0.6vmin solid;
+  border-color: var(--bridge) transparent transparent transparent;
+  border-radius: 47% 47% 0 0 / 50% 50% 0 0;
+  top: 27vmin;
+  left: -9.4vmin;
+  z-index: 1;
+}
+
+.shine {
+  position: absolute;
+  width: 300%;
+  height: 20%;
+  background: linear-gradient(45deg, transparent, var(--shine), transparent);
+  transform: translate(-100%, 100%) rotate(-45deg);
+  pointer-events: none;
+}
+
+/* Smooth Shine Animation */
+.shineLoop {
+  animation: shineMove 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes shineMove {
+  0% {
+    transform: translate(-100%, 100%) rotate(-45deg);
+  }
+  100% {
+    transform: translate(100%, -100%) rotate(-45deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .show {
+    left: 0;
+    top: 0;
+    transform: none; /* Ensures it stays centered */
+  }
+}

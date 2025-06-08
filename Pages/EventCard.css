@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+:root {
+  --gold: #ffcc00;
+  --gold-light: #fff9c4;
+  --gold-dark: #c8a415;
+  --silver: #c0c0c0;
+  --red: #ae0001;
+  --blue: #222f5b;
+  --bg-dark: #1a1a1a;
+  --parchment: #f5e6c8;
+}
+
+.wizard-card {
+  position: relative;
+  width: 280px;
+  height: 400px;
+  perspective: 1000px;
+  margin: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* Hover Effect for PC Users */
+@media (hover: hover) {
+  .wizard-card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0px 10px 30px rgba(255, 255, 100, 0.5);
+  }
+}
+
+/* Click Effect for Mobile Users */
+.wizard-card.clicked {
+  transform: scale(0.9);
+  transition: transform 0.2s ease-in-out;
+}
+
+
+
+.card-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  transform: rotateY(0deg);
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.card-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card-front {
+  background: linear-gradient(to bottom, #000000, #2D033B 60%, #000000);
+  border: 2px solid var(--gold);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  transform: translateZ(10px);
+}
+
+
+/* Front Card Elements */
+.image-container {
+  position: relative;
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--gold);
+  z-index: 2;
+}
+
+.character-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+/* Image Hover Effect */
+@media (hover: hover) {
+  .wizard-card:hover .character-image {
+      transform: scale(1.1);
+  }
+}
+
+/* Shining Overlay */
+.image-shine {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Shine Effect on Hover */
+@media (hover: hover) {
+  .wizard-card:hover .image-shine {
+      opacity: 1;
+  }
+}
+
+
+.title-container {
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+  z-index: 2;
+}
+
+.character-title {
+  font-family: 'MedievalSharp', cursive;
+  color: var(--gold);
+  font-size: 1.6rem;
+  margin: 0;  
+  letter-spacing: 1px;
+  transform: translateY(0);
+  transition: transform 0.3s;
+  width: 250px;
+  text-align: center;
+  padding-bottom: 2px;
+}
+
+.title-underline {
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 8px auto;
+  opacity: 0.7;
+}
+
+/* Magic Circle */
+.magic-circle {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 3px dashed rgb(255, 223, 45);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate 20s linear infinite;
+  z-index: 1;
+  margin-top: 50px;
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.8)); /* Adds a glowing effect */
+  transition: all 0.3s ease-in-out; /* Smooth transitions */
+}
+
+/* Faster Rotation on Hover */
+.wizard-card:hover .magic-circle {
+  animation: rotate 5s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 223, 45, 1)); /* Stronger glow */
+  border: 5px outset rgb(255, 223, 45);
+}
+
+/* Click Effect - Magic Pulse */
+.wizard-card:active .magic-circle {
+  animation: pulse 0.5s ease-in-out 1, rotate 1.5s linear infinite;
+  transform: translate(-50%, -50%) scale(1.2);
+  border-color: rgb(255, 100, 45); /* Change color briefly */
+  filter: drop-shadow(0 0 15px rgba(255, 100, 45, 1));
+}
+
+/* Normal Rotation */
+@keyframes rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Pulse Effect on Click */
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.4); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+
+/* Corner Decorations */
+.corner-decoration {
+  position: absolute;
+  width: 30px; /* Slightly larger */
+  height: 30px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23FFD700" d="M50 0 L100 50 L50 100 L0 50 Z"/></svg>');
+  background-size: contain;
+}
+.tl { top: 10px; left: 10px; }
+.tr { top: 10px; right: 10px; transform: rotate(90deg); }
+.bl { bottom: 10px; left: 10px; transform: rotate(270deg); }
+.br { bottom: 10px; right: 10px; transform: rotate(180deg); }
+
+@media (max-width:350px){
+  .wizard-card{
+    height: 250px;
+    height: 370px;
+  }
+  .image-container{
+    width: 230px;
+    height: 230px;
+    }
+  .magic-circle{
+    width: 230px;
+    height: 230px;
+  }
+}

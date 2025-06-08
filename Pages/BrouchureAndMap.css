@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&display=swap");
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100lh;
+  background: radial-gradient(circle, #000000 30%, #1b1b1b);
+  color: #ffcc00;
+  text-align: center;
+  font-family: 'Harry P', cursive;
+}
+
+.clock {
+  width: 240px;
+  height: 240px;
+  border: 6px solid #d4a760;
+  border-radius: 50%;
+  position: relative;
+  background: radial-gradient(circle, #222 40%, #1b1b1b);
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.8), inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+/* Roman Numerals */
+.roman-number {
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 204, 0, 0.9);
+}
+
+#twelve { top: 10px; left: 45%; }
+#three { right: 10px; top: 50%; transform: translateY(-50%); }
+#six { bottom: 10px; left: 50%; transform: translateX(-50%); }
+#nine { left: 10px; top: 50%; transform: translateY(-50%); }
+
+/* Clock Hands */
+.hand {
+  position: absolute;
+  width: 6px;
+  height: 60px;
+  background: #000000;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom;
+  transform: translateX(-50%);
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  transition: transform 0.1s linear;
+}
+
+.hour-hand {
+  height: 50px;
+  width: 8px;
+}
+
+.minute-hand {
+  height: 70px;
+}
+
+.second-hand {
+  height: 80px;
+  width: 3px;
+  background: #ddd2d1;
+  box-shadow: 0 0 10px rgba(231, 76, 60, 0.8);
+}
+
+.center-dot {
+  width: 10px;
+  height: 10px;
+  background: #ffcc00;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+}
+
+/* 🔥 Text Animation */
+.message {
+  font-size: 3rem;
+  margin-top: 50px;
+  text-shadow: 0 0 20px rgba(255, 204, 0, 0.9), 0 0 35px rgba(255, 204, 0, 0.6);
+  color: #ffcc00;
+  font-weight: bold;
+  background: none;
+  animation: glow-text 2s infinite alternate ease-in-out, float-text 3s infinite ease-in-out;
+  font-family: 'Harry P', cursive;
+}
+
+
+/* Animations */
+@keyframes glow-text {
+  0% { text-shadow: 0 0 20px rgba(255, 204, 0, 0.7); }
+  50% { text-shadow: 0 0 30px rgba(255, 204, 0, 1); }
+  100% { text-shadow: 0 0 20px rgba(255, 204, 0, 0.7); }
+}
+
+@keyframes float-text {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+
+@font-face {
+  font-family: 'Harry P';
+  src: url('../fonts/HARRYP__.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

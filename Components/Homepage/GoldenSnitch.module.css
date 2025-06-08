@@ -1,0 +1,7 @@
+.snitch {
+    cursor: pointer;
+    z-index: 1000;
+    filter: drop-shadow(0 0 10px gold);
+    -webkit-tap-highlight-color: transparent; /* Removes highlight on mobile */
+  }
+  

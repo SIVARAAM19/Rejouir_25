@@ -1,0 +1,163 @@
+.registration-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e1e1e, #ff004f);
+    color: #fff;
+  }
+  
+  .registration-box, .payment-section {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 30px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .registration-title, .payment-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .registration-form .input-container {
+    margin-bottom: 15px;
+  }
+  
+  .input-container input, .input-container select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .error-text {
+    color: #ff4c4c;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .register-button, .upi-button, .proceed-button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #ff004f;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .register-button:hover, .upi-button:hover, .proceed-button:hover {
+    background: #e60046;
+  }
+  
+  .qr-image {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    display: block;
+  }
+  
+  .transaction-success-text {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #ddd;
+  }
+  
+  @media (max-width: 400px) {
+    .registration-box, .payment-section {
+      width: 90%;
+      padding: 20px;
+    }
+  }
+  
+  .transaction-input-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .transaction-input-container input {
+    width: 80%;
+    max-width: 300px;
+    padding: 10px;
+    border: 2px solid #ff004f;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+  }
+  
+  .transaction-input-container input:focus {
+    border-color: #ff3366;
+    box-shadow: 0 0 10px rgba(255, 0, 79, 0.5);
+  }
+  
+  .transaction-input-container button {
+    margin-top: 10px;
+    background-color: #ff004f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .transaction-input-container button:hover {
+    background-color: #ff3366;
+    transform: scale(1.05);
+  }
+  
+  .receipt-message {
+    margin-top: 15px;
+    color: green;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .back-button {
+    background: linear-gradient(135deg, #ff004f, #ff5733);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .back-button:hover {
+    background: linear-gradient(135deg, #ff5733, #ff004f);
+    transform: scale(1.05);
+  }
+  
+  .back-button:active {
+    transform: scale(0.95);
+  }
+  
