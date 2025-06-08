@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        :root {
+            --bg:rgb(78, 0, 0);
+            --scar: #eeba32;
+            --glasses: rgba(255, 255, 255, 0.15); /* Semi-transparent for glass effect */
+            --bridge: #eeba32; /* Semi-transparent for glass effect */
+            --shine: rgba(255, 255, 255, 0.6);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .show {
+            position: relative;
+            height: 50%;
+        }
+
+        .scar {
+    position: absolute;
+    border-left: 3.2rem solid transparent;
+    border-right: 0.5rem solid transparent;
+    border-bottom: 5rem solid var(--scar);
+    left: -6rem; /* Move scar a little towards the left */
+}
+
+.scar::after {
+    content: "";
+    position: absolute;
+    border-left: 2.8rem solid transparent;
+    border-right: 0.5rem solid transparent;
+    border-bottom: 8.5rem solid var(--bg);
+    top: -4.8rem;
+    left: -1.25rem; /* Adjust if needed */
+    transform: rotate(-3deg);
+}
+
+.part-two {
+    top: 3.5rem;
+    left: -5.05rem; /* Move part-two slightly to the left */
+    transform: scale(-1);
+}
+
+
+        .glasses-one,
+        .glasses-two {
+            position: absolute;
+            width: 10rem;
+            height: 10rem;
+            border-radius: 50%;
+            background: var(--glasses); /* Glass-like transparency */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4), inset 0 1px 8px rgba(255, 255, 255, 0.6); /* Glass shadow */
+            backdrop-filter: blur(10px); /* Blurring background for glass effect */
+            border: 0.3rem solid  #eeba32; /* Soft white border for glass */
+            top: 9.5rem;
+            overflow: hidden;
+        }
+
+        .glasses-one {
+            left: -9rem;
+        }
+
+        .glasses-two {
+            left: 5rem;
+        }
+        .glasses-one {
+            left: -9rem;
+            }
+
+            .bridge{
+            content: "";
+            position: absolute;
+            width: 6.4rem;
+            height: 7rem;
+            border: 0.3rem solid;
+            border-color: var(--bridge) transparent transparent transparent;
+            border-radius: 47% 47% 0 0/50% 50% 0 0;
+            top: 13.5rem;
+            left:-0.2rem;
+            z-index: 1;
+            }
+
+        .shine {
+            position: absolute;
+            width: 300%;
+            height: 20%;
+            background: linear-gradient(45deg, transparent, var(--shine), transparent);
+            transform: translate(-100%, 100%) rotate(-45deg); /* Start bottom-left */
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class='show'>
+        <div class='scar'></div>
+        <div class='scar part-two'></div>
+        <div class='glasses-one'>
+            <div class="shine"></div>
+        </div>
+        <div class="bridge"></div>
+        <div class='glasses-two'>
+            <div class="shine"></div>
+        </div>
+    </div>
+
+    <script>
+        // Function to animate the shine effect diagonally
+        function animateShine() {
+            const shines = document.querySelectorAll('.shine');
+            shines.forEach(shine => {
+                shine.style.transform = 'translate(-100%, 100%) rotate(-45deg)'; // Start position
+                setTimeout(() => {
+                    shine.style.transition = 'transform 1.5s ease-in-out';
+                    shine.style.transform = 'translate(100%, -100%) rotate(-45deg)'; // Move to top-right
+                }, 0);
+
+                // Reverse the animation back to start position
+                shine.addEventListener('transitionend', () => {
+                    shine.style.transition = 'transform 1.5s ease-in-out';
+                    shine.style.transform = 'translate(-100%, 100%) rotate(-45deg)';
+                });
+            });
+        }
+
+        // Trigger the animation every 3 seconds
+        window.onload = () => {
+            animateShine(); // Initial quick shine
+            setInterval(animateShine, 3000); // Trigger the animation every 3 seconds
+        }
+    </script>
+</body>
+</html>
